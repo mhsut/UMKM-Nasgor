@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu | NASI GORENG FIKAR</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>🍳</span>
+            NASGOR
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="index.html#about">Tentang</a>
+            <a href="index.html#contact">Kontak</a>
+        </nav>
+
+        <a href="kasir.php" class="btn-kasir">
+            Kasir
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================= MENU HEADER ================= -->
+
+        <section class="menu-header">
+
+            <p class="subtitle">
+                MENU KAMI
+            </p>
+
+            <h1>
+                NASI GORENG FIKAR
+            </h1>
+
+            <p class="description">
+                LEZAT & MANTAP
+            </p>
+
+        </section>
+
+
+        <!-- ================= KATEGORI: MAKANAN ================= -->
+
+        <section class="menu-category">
+
+            <h2>Makanan</h2>
+
+            <div class="menu-grid">
+
+                <div class="menu-card">
+                     <img src="assets/merah.png"
+                         alt="Nasi Goreng Merah">
+                    <div class="card-visual">🍚</div>
+                    <div class="card-body">
+                        <div class="item-name">Nasi Goreng Merah</div>
+                        <div class="item-price">Rp 13.000</div>
+                        <button class="btn-pesan" onclick="tambahPesanan('Nasi Goreng Merah', 13000)">
+                         + Pesan
+                         </button>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-visual">🍚</div>
+                    <div class="card-body">
+                        <div class="item-name">Nasi Goreng Kampung</div>
+                        <div class="item-price">Rp 13.000</div>
+                        <button class="btn-pesan" onclick="tambahPesanan('Nasi Goreng Kampung', 13000)">
+                        + Pesan
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="menu-card">
+                    <div class="card-visual">🍚</div>
+                    <div class="card-body">
+                        <div class="item-name">Nasi Goreng Malaysia</div>
+                        <div class="item-price">Rp 18.000</div>
+                        <button class="btn-pesan" onclick="tambahPesanan('Nasi Goreng Malaysia', 18000)">
+                        + Pesan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-visual">🍚</div>
+                    <div class="card-body">
+                        <div class="item-name">Nasi Goreng China</div>
+                        <div class="item-price">Rp 20.000</div>
+                        <button class="btn-pesan" onclick="tambahPesanan('Nasi Goreng China', 20000)">
+                         + Pesan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-visual">🍚</div>
+                    <div class="card-body">
+                        <div class="item-name">Nasi Goreng USA</div>
+                        <div class="item-price">Rp 25.000</div>
+                        <button class="btn-pesan" onclick="tambahPesanan('Nasi Goreng USA', 25000)">
+                         + Pesan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Copy blok <div class="menu-card">...</div> di atas untuk menambah item -->
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= KATEGORI: MINUMAN ================= -->
+
+        <section class="menu-category">
+
+            <h2>Minuman</h2>
+
+            <div class="menu-grid">
+
+                <div class="menu-card">
+                    <div class="card-visual">☕</div>
+                    <div class="card-body">
+                        <div class="item-name">Kopi 'O</div>
+                        <div class="item-price">Rp 6.000</div>
+                       <button class="btn-pesan" onclick="tambahPesanan('Kopi O', 6000)">
+                        + Pesan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-visual">☕</div>
+                    <div class="card-body">
+                        <div class="item-name">Teh Panas</div>
+                        <div class="item-price">Rp 6.000</div>
+                        <button class="btn-pesan" onclick="tambahPesanan('Teh Panas', 6000)">
+                        + Pesan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-visual">🥤</div>
+                    <div class="card-body">
+                        <div class="item-name">Es Teh</div>
+                        <div class="item-price">Rp 8.000</div>
+                        <button class="btn-pesan" onclick="tambahPesanan('Es Teh', 8000)">
+                        + Pesan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-visual">🥤</div>
+                    <div class="card-body">
+                        <div class="item-name">Teh Tarik</div>
+                        <div class="item-price">Rp 12.000</div>
+                        <button class="btn-pesan" onclick="tambahPesanan('Teh Tarik', 12000)">
+                         + Pesan
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tambah <section class="menu-category">...</section> baru untuk kategori lain -->
+
+        </section>
+
+        <!-- ================= KERANJANG ================= -->
+
+        <section class="cart">
+
+            <h2>Keranjang Pesanan</h2>
+
+            <div id="cart-items">
+                Belum ada pesanan.
+            </div>
+
+            <button class="btn-primary" onclick="checkout()">
+                Lanjut ke Kasir
+            </button>
+
+        </section>
+
+ </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact">
+
+        <div class="footer-content">
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <h3>
+                    🍳 NASGOR
+                </h3>
+
+                <p>
+                    Nasi goreng dengan cita rasa khas.
+                </p>
+
+            </div>
+
+
+            <!-- KONTAK -->
+
+            <div class="footer-contact">
+
+                <h4>
+                    Kontak
+                </h4>
+
+                <p>
+                    Bengkalis, Riau
+                </p>
+
+                <p>
+                    WhatsApp: 08xxxxxxxxxx
+                </p>
+
+                <p>
+                    Buka setiap hari 08.00 - 22.00
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="copyright">
+
+            <p>
+                © 2026 NASGOR. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

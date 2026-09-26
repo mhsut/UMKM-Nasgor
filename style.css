@@ -1,0 +1,722 @@
+/* =====================================================================
+   NASGOR — style.css
+   Website UMKM Nasi Goreng
+   Font: Manrope (satu keluarga font, beberapa berat huruf)
+   Palet: off-white hangat + charcoal + accent oranye masak
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* ---------------------------------------------------------------------
+   1. CSS VARIABLES
+   --------------------------------------------------------------------- */
+:root {
+    /* warna dasar */
+    --color-bg: #fcfaf7;
+    --color-bg-alt: #f2ece2;
+    --color-surface: #ffffff;
+
+    /* warna teks */
+    --color-ink: #211d19;
+    --color-ink-soft: #6b6058;
+    --color-ink-faint: #9a8f85;
+
+    /* accent (terinspirasi warna nasi goreng / bawang goreng) */
+    --color-accent: #c1631f;
+    --color-accent-dark: #9c4e17;
+    --color-accent-tint: #f4e3d2;
+
+    /* garis & bayangan */
+    --color-line: #e6ddd1;
+    --shadow-soft: 0 1px 2px rgba(33, 29, 25, 0.04), 0 8px 24px rgba(33, 29, 25, 0.06);
+    --shadow-hover: 0 10px 28px rgba(33, 29, 25, 0.10);
+
+    /* tipografi */
+    --font-main: 'Manrope', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* ukuran & jarak */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --container-width: 1160px;
+    --transition-base: 0.25s ease;
+}
+
+/* ---------------------------------------------------------------------
+   2. RESET & BASE
+   --------------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-main);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+section {
+    padding: 96px 24px;
+}
+
+/* fokus keyboard tetap terlihat, untuk aksesibilitas */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------------
+   3. NAVBAR
+   --------------------------------------------------------------------- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px 48px;
+    background-color: rgba(252, 250, 247, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-line);
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: var(--color-ink);
+    white-space: nowrap;
+}
+
+.navbar .logo span {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.navbar nav a {
+    position: relative;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-ink-soft);
+    padding: 4px 0;
+    transition: color var(--transition-base);
+}
+
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-base);
+}
+
+.navbar nav a:hover {
+    color: var(--color-ink);
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+.btn-kasir {
+    flex-shrink: 0;
+    padding: 10px 24px;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-ink);
+    color: var(--color-bg) !important;
+    font-weight: 700;
+    font-size: 0.92rem;
+    transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+.btn-kasir:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------------------
+   4. BUTTONS (umum)
+   --------------------------------------------------------------------- */
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.98rem;
+    transition: background-color var(--transition-base), color var(--transition-base),
+        border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: #fff9f2;
+    border: 1px solid var(--color-accent);
+    box-shadow: 0 6px 18px rgba(193, 99, 31, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-dark);
+    border-color: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(193, 99, 31, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-ink);
+    border: 1px solid var(--color-ink);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-ink);
+    color: var(--color-bg);
+    transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------------------
+   5. HERO SECTION
+   --------------------------------------------------------------------- */
+.hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 48px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding-top: 88px;
+    padding-bottom: 88px;
+}
+
+.hero-content {
+    max-width: 520px;
+}
+
+.subtitle {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--color-accent);
+    margin-bottom: 18px;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    color: var(--color-ink);
+}
+
+.hero-content h1 span {
+    color: var(--color-accent);
+}
+
+.hero-content .description {
+    margin-top: 22px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    max-width: 440px;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+}
+
+/* --- area visual 3D --- */
+.hero-3d {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#canvas-3d {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#canvas-3d::before {
+    content: "";
+    position: absolute;
+    inset: 6%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--color-accent-tint), var(--color-bg-alt) 70%);
+    border: 1px solid var(--color-line);
+}
+
+#canvas-3d::after {
+    content: "";
+    position: absolute;
+    inset: -4%;
+    border-radius: 50%;
+    border: 1px dashed var(--color-line);
+}
+
+.placeholder-3d {
+    position: relative;
+    z-index: 1;
+    font-size: 7rem;
+    line-height: 1;
+    animation: float-plate 5s ease-in-out infinite;
+}
+
+@keyframes float-plate {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+/* ---------------------------------------------------------------------
+   6. ABOUT SECTION
+   --------------------------------------------------------------------- */
+.about-section {
+    background-color: var(--color-bg-alt);
+}
+
+.about-content {
+    max-width: 660px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content .subtitle {
+    display: block;
+}
+
+.about-content h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--color-ink);
+}
+
+.about-content p {
+    margin-top: 20px;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: var(--color-ink-soft);
+}
+
+.about-content p + p {
+    margin-top: 14px;
+}
+
+/* ---------------------------------------------------------------------
+   7. CTA SECTION
+   --------------------------------------------------------------------- */
+.cta-section {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--color-ink);
+}
+
+.cta-section p {
+    margin-top: 14px;
+    font-size: 1.05rem;
+    color: var(--color-ink-soft);
+}
+
+.cta-section .btn-primary {
+    margin-top: 30px;
+}
+
+/* ---------------------------------------------------------------------
+   8. FOOTER
+   --------------------------------------------------------------------- */
+footer {
+    background-color: var(--color-ink);
+    color: #d8d2c9;
+    padding: 64px 24px 28px;
+}
+
+.footer-content {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.footer-brand p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #a89f93;
+}
+
+.footer-contact h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.footer-contact p {
+    font-size: 0.92rem;
+    color: #a89f93;
+    line-height: 1.6;
+}
+
+.copyright {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding-top: 22px;
+    text-align: center;
+}
+
+.copyright p {
+    font-size: 0.82rem;
+    color: #8a8177;
+}
+
+/* ---------------------------------------------------------------------
+   9. MENU PAGE — HEADER
+   --------------------------------------------------------------------- */
+.menu-header {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 48px;
+}
+
+.menu-header .subtitle {
+    display: block;
+}
+
+.menu-header h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--color-ink);
+}
+
+.menu-header .description {
+    margin: 10px auto 0;
+    font-size: 1rem;
+    color: var(--color-ink-soft);
+    max-width: none;
+}
+
+/* ---------------------------------------------------------------------
+   10. MENU PAGE — KATEGORI & GRID KARTU
+   --------------------------------------------------------------------- */
+.menu-category {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding-top: 0;
+    padding-bottom: 64px;
+}
+
+.menu-category h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-ink);
+    padding-bottom: 14px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.menu-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-accent-tint);
+}
+
+.card-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 128px;
+    font-size: 3.1rem;
+    background-color: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-line);
+}
+
+.card-body {
+    padding: 18px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card-body .item-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-ink);
+}
+
+.card-body .item-price {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--color-accent);
+}
+
+.btn-pesan {
+    align-self: flex-start;
+    margin-top: 10px;
+    padding: 8px 18px;
+    border: 1px solid var(--color-ink);
+    background-color: transparent;
+    color: var(--color-ink);
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
+}
+
+.btn-pesan:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff9f2;
+    transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------------------
+   11. RESPONSIVE — TABLET (≤ 1024px)
+   --------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 14px 28px;
+    }
+
+    .navbar nav {
+        gap: 24px;
+    }
+
+    section {
+        padding: 72px 24px;
+    }
+
+    .hero {
+        gap: 32px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.6rem;
+    }
+
+    #canvas-3d {
+        max-width: 320px;
+    }
+
+    .placeholder-3d {
+        font-size: 5.5rem;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   12. RESPONSIVE — MOBILE (≤ 768px)
+   --------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 14px 20px;
+    }
+
+    /* Tanpa tombol hamburger di HTML, link navigasi disembunyikan
+       di layar sempit agar navbar tetap rapi dan tidak overflow. */
+    .navbar nav {
+        display: none;
+    }
+
+    .btn-kasir {
+        padding: 9px 18px;
+        font-size: 0.88rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 56px;
+        padding-bottom: 48px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .hero-content .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-3d {
+        order: -1;
+        margin-bottom: 12px;
+    }
+
+    #canvas-3d {
+        max-width: 240px;
+    }
+
+    .placeholder-3d {
+        font-size: 4.5rem;
+    }
+
+    .about-content h2,
+    .cta-section h2 {
+        font-size: 1.7rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 28px;
+        text-align: center;
+    }
+
+    .footer-brand,
+    .footer-contact {
+        margin: 0 auto;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   13. RESPONSIVE — MOBILE KECIL (≤ 480px)
+   --------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    section {
+        padding: 56px 16px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+        width: 100%;
+    }
+
+    .about-content h2,
+    .cta-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   14. HORMATI PREFERENSI PENGURANGAN GERAKAN
+   --------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
